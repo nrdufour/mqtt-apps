@@ -37,7 +37,6 @@ class SensorData(NamedTuple):
 
 def on_connect(client, userdata, flags, rc):
     """ The callback for when the client receives a CONNACK response from the server."""
-    print('Connected with result code ' + str(rc))
     client.subscribe(MQTT_TOPIC)
 
 
