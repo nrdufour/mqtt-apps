@@ -6,23 +6,24 @@ This script receives MQTT data and saves those to InfluxDB.
 
 """
 
+import os
 import re
 from typing import NamedTuple
 
 import paho.mqtt.client as mqtt
 from influxdb import InfluxDBClient
 
-INFLUXDB_ADDRESS = 'influxdb.default'
+INFLUXDB_ADDRESS = os.getenv('INFLUXDB_HOST', 'influxdb.default')
 #INFLUXDB_USER = 'root'
 #INFLUXDB_PASSWORD = 'root'
-INFLUXDB_DATABASE = 'home_sensors'
+INFLUXDB_DATABASE = os.getenv('INFLUXDB_DBNAME', 'home_sensors')
 
-MQTT_ADDRESS = 'mqtt.default'
+MQTT_ADDRESS = os.getenv('MQTT_HOST', 'mqtt.default')
 #MQTT_USER = 'mqttuser'
 #MQTT_PASSWORD = 'mqttpassword'
 MQTT_TOPIC = 'home/sensors/+/+'  # home/sensors/<iddentifier>/<measure_name>
 MQTT_REGEX = 'home/sensors/([^/]+)/([^/]+)'
-MQTT_CLIENT_ID = 'MQTTInfluxDBBridge'
+MQTT_CLIENT_ID = os.getenv('MQTT_CLIENT_ID', 'MQTTInfluxDBBridge')
 
 #influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086, INFLUXDB_USER, INFLUXDB_PASSWORD, None)
 influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086)

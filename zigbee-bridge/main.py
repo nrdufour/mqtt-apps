@@ -7,19 +7,20 @@ as expected by the mqtt-bridge :-)
 
 """
 
+import os
 import re
 from typing import NamedTuple
 
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 
-MQTT_ADDRESS = 'mqtt.default'
+MQTT_ADDRESS = os.getenv('MQTT_HOST', 'mqtt.default')
 #MQTT_USER = 'mqttuser'
 #MQTT_PASSWORD = 'mqttpassword'
 MQTT_TOPIC = 'home/sensors/zigbee/raw/+'  # home/sensors/zigbee/raw/<iddentifier>
 MQTT_REGEX = 'home/sensors/zigbee/raw/([^/]+)'
 NEW_TOPIC_FORMAT = 'home/sensors/zb-{id}/{field}'
-MQTT_CLIENT_ID = 'Zigbee2MQTT'
+MQTT_CLIENT_ID = os.getenv('MQTT_CLIENT_ID', 'Zigbee2MQTT')
 SHORT_2_CLEAN_NAMES = {
         'CT': 'control_temperature',
         'P':  'pressure',
