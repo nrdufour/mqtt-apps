@@ -1,15 +1,12 @@
 
-.PHONY: multiarch build
+.PHONY: build
 
 all: build
 
-multiarch:
-	docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-
-build: multiarch
-	docker build . -t zigbee-bridge
+build:
+	podman build --arch arm --override-arch arm -t zigbee-bridge .
 
 deploy:
-	docker tag zigbee-bridge registry.home:5000/zigbee-bridge
-	docker push registry.home:5000/zigbee-bridge
+	podman tag zigbee-bridge registry.home:5000/zigbee-bridge
+	podman push registry.home:5000/zigbee-bridge
 
