@@ -3,7 +3,10 @@
 
 all: build
 
-build:
+multiarch:
+	sudo podman run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
+build: multiarch
 	podman build --arch arm --override-arch arm -t zigbee-bridge .
 
 deploy:
