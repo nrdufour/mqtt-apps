@@ -1,5 +1,4 @@
-#FROM python:3.7-alpine
-FROM arm32v6/alpine
+FROM alpine:3.18.0
 
 RUN apk add python3 py3-pip
 
