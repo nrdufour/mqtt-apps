@@ -1,11 +1,6 @@
 FROM alpine:3.19.0
 
-RUN apk add python3 py3-pip
-
-COPY requirements.txt /
-RUN pip3 install -r /requirements.txt
-
-RUN which python3
+RUN apk add python3 py3-paho-mqtt
 
 COPY . /app
 WORKDIR /app
