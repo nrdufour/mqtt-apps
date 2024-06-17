@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.GIT_USERNAME }}
           password: ${{ secrets.GIT_PASSWORD }}
       - name: Build and push mqtt-bridge
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./mqtt-bridge
           platforms: linux/arm64
@@ -28,7 +28,7 @@ jobs:
           tags: |
             git.internal/nrdufour/mqtt-bridge:latest
       - name: Build and push zigbee-bridge
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./zigbee-bridge
           platforms: linux/arm64
