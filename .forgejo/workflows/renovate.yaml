@@ -22,5 +22,7 @@ jobs:
       - name: Renovate
         uses: ./renovate-config/.forgejo/actions/common-renovate
         with:
+          token: ${{ secrets.RENOVATE_TOKEN }}
+          github-token: ${{ secrets.GH_TOKEN }}
           args: nemo/mqtt-apps
           log-level: debug
