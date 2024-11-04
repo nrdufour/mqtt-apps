@@ -23,3 +23,4 @@ jobs:
         uses: ./renovate-config/.forgejo/actions/common-renovate
         with:
           args: nemo/mqtt-apps
+          log-level: debug
