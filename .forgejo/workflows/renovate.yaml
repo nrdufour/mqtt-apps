@@ -3,7 +3,7 @@ on:
   # schedule:
   #   - cron: '* */3 * * *'
   push:
-    branches: ["main"]
+    branches: ["master"]
     paths-ignore:
       - '!.forgejo/workflows/renovate.yaml'
 
