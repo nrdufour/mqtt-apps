@@ -17,10 +17,9 @@ jobs:
         with:
           show-progress: false
           repository: nemo/renovate-config
-          branch: master
           token: ${{ secrets.RENOVATE_TOKEN }}
-          path: ./.forgejo/actions/common-renovate
+          path: ./renovate-config
       - name: Renovate
-        uses: ./.forgejo/actions/common-renovate
+        uses: ./renovate-config/.forgejo/actions/common-renovate
         with:
           args: nemo/mqtt-apps
