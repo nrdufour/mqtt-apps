@@ -18,6 +18,7 @@ jobs:
           show-progress: false
           repository: nemo/renovate-config
           branch: master
+          token: ${{ secrets.RENOVATE_TOKEN }}
           path: ./.forgejo/actions/common-renovate
       - name: Renovate
         uses: ./.forgejo/actions/common-renovate
