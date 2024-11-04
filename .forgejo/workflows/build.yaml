@@ -1,5 +1,9 @@
 name: ci
-on: [push]
+on:
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - ".forgejo/workflows/renovate.yaml"
 
 jobs:
   docker:
